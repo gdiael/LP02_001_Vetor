@@ -17,6 +17,35 @@ public class Vetor {
 		this.z += v.z;
 	}
 	
+	public void subt(Vetor v){
+		this.x -= v.x;
+		this.y -= v.y;
+		this.z -= v.z;
+	}
+
+	public void invert(){
+		this.x = -this.x;
+		this.y = -this.y;
+		this.z = -this.z;
+	}
+
+	public void multiply(double k){
+		this.x = this.x*k;
+		this.y = this.y*k;
+		this.z = this.z*k;
+	}
+
+	public double dotProduct(Vetor v){
+		return this.x * v.x + this.y * v.y + this.z * v.z;
+	}
+
+	public Vetor crossProduct(Vetor v){
+		double crossX = this.y * v.z - this.z * v.x;
+		double crossY = this.z * v.x - this.x * v.z;
+		double crossZ = this.x * v.z - this.y * v.z;
+		return new Vetor(crossX, crossY, crossZ);
+	}
+
 	public double norm(){
 		return Math.sqrt(x*x + y*y + z*z);
 	}
